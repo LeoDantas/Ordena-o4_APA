@@ -13,20 +13,20 @@ public static void main(String[] args) {
 		
 		int n = input.nextInt();
 
-		int a[] = new int[n];
+		long a[] = long int[n];
 		
 		for(int i = 0; i < n; i++){
-			a[i] = input.nextInt();
+			a[i] = input.nextLong();
 		}
     
-     int max = Integer.MIN_VALUE;
+     long max = Long.MIN_VALUE;
       for(int j = 0 ; j < a.length;j++){
          if(a[j]> max)
          max = a[j];
       }
 
 
-         int min = Integer.MAX_VALUE;
+         long min = Long.MAX_VALUE;
 
          for (int i = 0; i < a.length; ++i) {
              if (a[i] < min) { 
