@@ -2,14 +2,14 @@ public class HeapSort {
 
     private static int total;
 
-    private static void swap (int[] arr, int a, int b)
+    private static void swap (long[] arr, int a, int b)
     {
-         int tmp = arr[a];
+         long tmp = arr[a];
         arr[a] = arr[b];
         arr[b] = tmp;
     }
 
-    private static void heapify( int[] arr, int i)
+    private static void heapify( long[] arr, int i)
     {
         int esq = i * 2;
         int dir = esq + 1;
@@ -27,7 +27,7 @@ public class HeapSort {
         }
     }
 
-    public static void sort( int[] arr)
+    public static void sort( long[] arr)
     {
         total = arr.length - 1;
 
