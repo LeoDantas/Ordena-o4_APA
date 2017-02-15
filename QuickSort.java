@@ -8,21 +8,21 @@ import java.util.Arrays;
  */
 public class QuickSort {
      
-    public static long cont = 0;
-    public static long Pivo_tempo = 0;
-    public static long Tempo=0;
+    public static int cont = 0;
+    public static int Pivo_tempo = 0;
+    public static int Tempo=0;
     
-    private static void swap(int v[], int i, int j){  //Método para efetuar a troca de vetores
-        int aux = v[i];
+    private static void swap(long v[], int i, int j){  //Método para efetuar a troca de vetores
+        long aux = v[i];
         v[i] = v[j];
         v[j] = aux;
     }
       
  
       
-    public static int pivo_ini(int v[], int ini, int fim){//Calculo do pivo no inicio
+    public static int pivo_ini(long v[], int ini, int fim){//Calculo do pivo no inicio
     long tempoInicial = System.nanoTime();
-    int pivo;
+    long pivo;
     int topo, i;
     pivo = v[ini];
     topo = ini;
@@ -31,20 +31,21 @@ public class QuickSort {
             if (v[i] < pivo) {
                 v[topo] = v[i];
                 v[i] = v[topo + 1];
-                topo++;
-                          
+                topo++;                          
             }
         }
+
     v[topo] = pivo;
     long tempoFinal = System.nanoTime(); 
-    Pivo_tempo = (tempoFinal - tempoInicial);
+    long Pivo_tempo = (tempoFinal - tempoInicial);
     return topo;
 }
     
 
     
-    public static void quick_sort(int v[],int ini,int fim){//Função para fazer a ordenação do vetor, a chamada do pivo pode
+    public static void quick_sort(long v[],int ini,int fim){//Função para fazer a ordenação do vetor, a chamada do pivo pode
            //ser alterada.
+    
     int meio;                                               
     if (ini < fim) {
         meio = pivo_ini(v, ini, fim);
@@ -53,6 +54,7 @@ public class QuickSort {
         quick_sort(v, ini, meio-1);
         quick_sort(v, meio + 1, fim);
     }
+    
     
    
 }
