@@ -41,6 +41,7 @@ public static void main(String[] args) {
       }
     }
 
+    //teste do uso do bucket sort
     int numBuckets = (int)(n * 0.2);
     int contZeros = 0;
     if(max<Integer.MAX_VALUE){
@@ -65,32 +66,43 @@ public static void main(String[] args) {
     
     if((max-min) < 10000){//entra se a variação de valores do vetor for menor de 10.000
       CounSort c = new CounSort();
-      c.Csort(a);
       System.out.println("CountingSort");
+      tempoInicial = System.currentTimeMillis(); 
+      c.Csort(a);
+      System.out.println("CountingSort - Tempo: "+(System.currentTimeMillis() - tempoInicial)+" ms");
     
     }else if((((contZeros < (n*0.4)) && numBuckets < 100000)|| (max-min)<10000) && max < Integer.MAX_VALUE){
       BucketSort b = new BucketSort();
-      b.Bsort(a);
       System.out.println("BucketSort");
+      tempoInicial = System.currentTimeMillis(); 
+      b.Bsort(a);
+      System.out.println("BucketSort - Tempo: "+(System.currentTimeMillis() - tempoInicial)+" ms");
     
     }else if(cont >= a.length * .6){//entra se possuir se 60% do vetor tiver a mesma quantidade de dígitos do maior elemento
       RadixSort r = new RadixSort();
-      r.Rsort(a,a.length);
       System.out.println("RadixSort");
+      tempoInicial = System.currentTimeMillis();
+      r.Rsort(a,a.length);
+      System.out.println("RadixSort - Tempo: "+(System.currentTimeMillis() - tempoInicial)+" ms");
     
     }else if(a.length <= 500000){//
       QuickSort q = new QuickSort();
-      q.quick_sort(a,0,(a.length-1));
       System.out.println("QuickSort");
+      tempoInicial = System.currentTimeMillis();
+      q.quick_sort(a,0,(a.length-1));
+      System.out.println("QuickSort - Tempo: "+(System.currentTimeMillis() - tempoInicial)+" ms");
+      
     }else{
         HeapSort h = new HeapSort();
-        h.sort(a);
         System.out.println("HeapSort");
+        tempoInicial = System.currentTimeMillis();
+        h.sort(a);
+        System.out.println("HeapSort - Tempo: "+(System.currentTimeMillis() - tempoInicial)+" ms");
     }
 
-    // for(long num:a){
-    //   System.out.println(num);
-    // }
+    for(long num:a){
+      System.out.println(num);
+    }
 
 
     /*
