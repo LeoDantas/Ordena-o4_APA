@@ -19,3 +19,6 @@ ou
 ```
 bash run.sh diretorio
 ```
+Resultados
+----
+Os resultados são salvos na pasta **resultados**. Cada ordenação gera um arquivo contendo o algoritmo selecionado pela heurística, seu tempo de ordenação e o vetor ordenado.
