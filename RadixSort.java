@@ -1,27 +1,35 @@
 import java.util.Arrays;
 
 public class RadixSort {
-	static int MaxValor(int a[], int n){
+	static long MaxValor(long a[], int n){
 		
-        int mx = a[0];
+        long mx = a[0];
         for (int i = 1; i < n; i++)
             if (a[i] > mx)
                 mx = a[i];
         return mx;
     }
 
-    static void countSort(int a[], int n, int exp){
+    static void countSort(long a[], int n, int exp){
     	
-        int output[] = new int[n]; 
+        long output[] = new long[n]; 
         int i;
-        int count[] = new int[10];
+        long maior,menor;
+        maior = menor = a[0];
+
+        for(i = 0; i < n; i++){
+            if(a[i] > maior) maior = a[i];
+            else if(a[i]<menor) menor = a[i];
+        }
+
+        int count[] = new int[(int) (maior-menor)];
         
         for (int j=0; j<count.length; ++j){
             count[j] = 0;
         }
 
         for (i = 0; i < n; i++)
-            count[ (a[i]/exp)%10 ]++;
+            count[(int) ((a[i]-menor)/exp)%10 ]++;
  
 
         for (i = 1; i < 10; i++)
@@ -29,8 +37,8 @@ public class RadixSort {
  
         for (i = n - 1; i >= 0; i--){
         	
-            output[count[ (a[i]/exp)%10 ] - 1] = a[i];
-            count[ (a[i]/exp)%10 ]--;
+            output[count[ (int)((a[i]-menor)/exp)%10 ] - 1] = a[i];
+            count[(int) ((a[i]-menor)/exp)%10 ]--;
         }
  
 
@@ -39,12 +47,12 @@ public class RadixSort {
     }
  
    
-    public static void Rsort(int a[], int n){
+    public static void Rsort(long a[], int n){
     	
-        int m = MaxValor(a, n);
+        long m = MaxValor(a, n);
  
         
-        for (int exp = 1; m/exp > 0; exp *= 10)
+        for (int exp = 1; (int)m/exp > 0; exp *= 10)
             countSort(a, n, exp);
     }
 

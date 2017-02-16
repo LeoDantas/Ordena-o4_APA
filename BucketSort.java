@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class BucketSort {
 	
-	public static void Bsort(int[] a) {
-	    int maxvalor = a[0], minvalor = a[0];
+	public static void Bsort(long[] a) {
+	    long maxvalor = a[0], minvalor = a[0];
 		
     	for(int j = 1 ; j < a.length;j++){
     	   if(a[j]> maxvalor)
@@ -12,28 +12,28 @@ public class BucketSort {
     			minvalor = a[j];
     	}
 
-    	int dif = maxvalor - minvalor;
-    	int numBuckets = (int)(a.length * 0.2);
-    	int divFat = maxvalor/numBuckets;
+    	long dif = maxvalor - minvalor;
+    	long numBuckets = (long)(a.length * 0.2);
+    	long divFat = (dif/numBuckets)+1;
 
-    	ArrayList<ArrayList<Integer>> buckets = new ArrayList<ArrayList<Integer>>();
+    	ArrayList<ArrayList<Long>> buckets = new ArrayList<ArrayList<Long>>();
     	
-    	int x = 0;
+    	long x = 0;
     	while(x < (numBuckets)+1){
-    		buckets.add(new ArrayList<Integer>());
+    		buckets.add(new ArrayList<Long>());
     		x++;
     	}
 	      
 	    for(int i = 0; i < a.length; i++){
-	    	ArrayList<Integer> temp = buckets.get((a[i]-minvalor)/divFat);
+	    	ArrayList<Long> temp = buckets.get((int)((a[i]-minvalor)/divFat));
 
 	    	if(temp.size() == 0){
 	    		temp.add(a[i]);
 	    	}else{
-	    		int aux = a[i];
+	    		long aux = a[i];
 	    		for(int j = 0; j < temp.size(); j++){
 	    			if(aux<temp.get(j)){
-	    				int aux2 = temp.get(j);
+	    				long aux2 = temp.get(j);
 	    				temp.set(j,aux);
 	    				aux = aux2;
 	    			}
