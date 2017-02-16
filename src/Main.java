@@ -42,7 +42,7 @@ public static void main(String[] args) {
     }
 
     int numBuckets = (int)(n * 0.2);
-     int contZeros = 0;
+    int contZeros = 0;
     if(max<Integer.MAX_VALUE){
       int dif = (int)(max - min);
       
@@ -53,7 +53,7 @@ public static void main(String[] args) {
       for(int i =0; i < n; i++){
         contBuckets[(int)((a[i]-min)/divFat)]++;
       }
-      
+
       for(int i = 0; i < numBuckets; i++) {
         if(contBuckets[i] == 0){
           contZeros++;
