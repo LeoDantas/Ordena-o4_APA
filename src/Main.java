@@ -64,7 +64,7 @@ public static void main(String[] args) {
    
    
     
-    if((max-min) < 10000){//entra se a variação de valores do vetor for menor de 10.000
+    if((max-min) < 100000){//entra se a variação de valores do vetor for menor de 10.000
       CounSort c = new CounSort();
       System.out.println("CountingSort");
       tempoInicial = System.currentTimeMillis(); 
